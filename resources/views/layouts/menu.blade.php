@@ -1,0 +1,1 @@
+<center><h1>Anda Berhasil Menambahkan Lowongan</h1></center>
