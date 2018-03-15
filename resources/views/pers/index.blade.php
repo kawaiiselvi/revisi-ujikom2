@@ -27,9 +27,9 @@
 						<th>Pendidikan</th>
 						<th>Gaji</th>
 						<th>Daftar Pelamar</th>
-						@role('member')
+						
 						<th colspan="2">Action</th>
-						@endrole
+						
 					</tr>
 				</thead>
 				<tbody>
@@ -47,6 +47,11 @@
         				$pelamar = App\Civi::where('lowongan_id', '=', $data->id)->get();
         				@endphp
 						<td>@foreach($pelamar as $datta) {{$datta->nama}} <br> @endforeach</td>
+						<td><form action="{{route('lokers.destroy',$data->id)}}" method="post">
+								<input type="hidden" name="_method" value="DELETE">
+								<input type="hidden" name="_token" >
+								<input type="submit" class="btn btn-danger" value="Delete">{{csrf_field()}}
+						</form></td>
 						@role('member')
 						<td>
                                 <a class="btn btn-warning" href="{{ url('/member/civi/tambah',$data->id) }}">Lamar Pekerjaan</a></td>
